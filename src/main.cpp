@@ -31,5 +31,23 @@ int main()
 	Sprite sp_sprite;
 	sp_sprite.setTexture(sp_texture);
 
+	while (window.isOpen())
+	{
+		Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == Event::Closed)
+			{
+				window.close();
+			}
+		}
+
+		window.clear();
+
+		window.draw(sp_sprite);
+
+		window.display();
+	}
+
 	return 0;
 }

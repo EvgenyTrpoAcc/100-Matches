@@ -23,4 +23,3 @@ bin:
 
 clean:
                 rm -rf build bin
-

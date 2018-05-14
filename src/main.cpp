@@ -3,6 +3,7 @@
 #include "func.h"
 
 using namespace std;
+using namespace sf;
 
 int main()
 {
@@ -20,6 +21,15 @@ int main()
 
 	mod.setColor(Color::Cyan);
 	mod.setStyle(Text::Bold);
+
+	Image sp;
+	sp.loadFromFile("Things/sp.jpg");
+
+	Texture sp_texture;
+	sp_texture.loadFromImage(sp);
+
+	Sprite sp_sprite;
+	sp_sprite.setTexture(sp_texture);
 
 	return 0;
 }

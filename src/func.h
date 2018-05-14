@@ -5,8 +5,8 @@ using namespace std;
 
 struct gamer
 {
-	bool status;
-	string name;
+    bool status;
+    string name;
 };
 
 #endif

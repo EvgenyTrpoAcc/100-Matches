@@ -1,6 +1,6 @@
 #include <iostream>
 
-#pragma warning (disable : 4996)
+#include "func.h"
 
 using namespace std;
 

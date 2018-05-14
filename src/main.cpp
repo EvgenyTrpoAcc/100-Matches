@@ -9,6 +9,7 @@ int main()
 {
 	RenderWindow window(VideoMode(800, 450), "100 matches");
 	string str;
+	char ch;
 
 	Font font;
 	font.loadFromFile("Things/11776.otf");

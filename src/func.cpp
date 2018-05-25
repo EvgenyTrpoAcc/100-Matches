@@ -344,4 +344,31 @@ void CooperativePlay(RenderWindow *window, Sprite sp, Font font)
 
 	num = IntToString(matches);
 
+	while (window->isOpen())
+	{
+		Event event;
+		while (window->pollEvent(event))
+		{
+			if (event.type == Event::Closed)
+			{
+				free(num);
+				window->close();
+			}
+
+			if (event.type == Event::TextEntered)
+			{
+				if (event.text.unicode < 128)
+				{
+					str += static_cast<char>(event.text.unicode);
+					turn.setString(str);
+				}
+			}
+		}
+
+		window->clear();
+
+		window->draw(sp);
+
+		window->display();
+	}
 }

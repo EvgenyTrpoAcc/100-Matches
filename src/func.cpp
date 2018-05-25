@@ -281,6 +281,7 @@ void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod)
 
 		window->display();
 	}
+}
 
 int II_Turn(int matches)
 {
@@ -314,7 +315,7 @@ int II_Turn(int matches)
 	{
 		a = matches - 1;
 		matches -= a;
-}
+	}
 }
 
 return matches;

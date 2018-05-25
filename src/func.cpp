@@ -69,7 +69,28 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 	after_h.setStyle(Text::Bold);
 
 	RecordData(st, window, sp, font, 1);
+	
+	num = IntToString(matches);
+	was = IntToString(matches);
 
+	while (window->isOpen())
+	{
+		Event event;
+		while (window->pollEvent(event))
+		{
+			if (event.type == Event::Closed)
+			{
+				free(num);
+				window->close();
+			}
+		}
+
+		window->clear();
+
+		window->draw(sp);
+
+		window->display();
+	}
 }
 
 void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod)

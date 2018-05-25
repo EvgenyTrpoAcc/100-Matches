@@ -103,12 +103,6 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 					turn.setString(str);
 				}
 
-				if (event.key.code == Keyboard::Escape)
-				{
-					free(num);
-					return;
-				}
-
 				if (event.key.code == Keyboard::Return && (x == 1) && (ch == 'y'))
 				{
 					st[0].status = true;
@@ -125,7 +119,7 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 					turn.setString(str);
 				}
 
-				if (event.key.code == Keyboard::Return && (st[0].status == true)) // Õîä ÷åëîâåêà
+				if (event.key.code == Keyboard::Return && (st[0].status == true))
 				{
 					a = atoi(str.c_str());
 
@@ -141,6 +135,12 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 
 					str.clear();
 				}
+
+				if (event.key.code == Keyboard::Escape)
+				{
+					free(num);
+					return;
+				}
 			}
 		}
 
@@ -148,18 +148,7 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 
 		window->draw(sp);
 
-		if (x == 1) // Choice: to turn first or second
-		{
-			text.setString("\n\nDo you want to turn first ? [y or n]");
-			text.setPosition(55, 0);
-			window->draw(text);
-
-			turn.setString(ch);
-			turn.setPosition(350, 120);
-			window->draw(turn);
-		}
-
-		if ((st[0].status == true) && (matches != 0))
+		if ((st[0].status == true) && (matches != 0) && (x != 1))
 		{
 			text.setString("Turn of ");
 			text.setPosition(260, 140);
@@ -188,9 +177,13 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 		after_h.setPosition(510, 40);
 		window->draw(after_h);
 
-		////
-		//ii turn
-		////
+		if ((st[0].status == false) && (matches != 0)) //II turn
+		{
+			st[0].status = true;
+			matches = II_Turn(matches);
+			free(num);
+			num = IntToString(matches);
+		}
 
 		if ((matches == 0) && (st[0].status == true))
 		{
@@ -203,6 +196,17 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 			text.setString("...YOU LOSE...");
 			text.setPosition(210, 160);
 			window->draw(text);
+		}
+
+		if (x == 1) // Choice: to turn first or second
+		{
+			text.setString("\n\nDo you want to turn first ? [y or n]");
+			text.setPosition(55, 0);
+			window->draw(text);
+
+			turn.setString(ch);
+			turn.setPosition(350, 120);
+			window->draw(turn);
 		}
 
 		window->display();
@@ -304,7 +308,7 @@ int II_Turn(int matches)
 	}
 	else if (matches == 1)
 	{
-		—matches;
+		--matches;
 	}
 	else if ((matches < 100) && (((matches % 11) - 1) != matches))
 	{
@@ -316,8 +320,6 @@ int II_Turn(int matches)
 		a = matches - 1;
 		matches -= a;
 	}
-}
 
-return matches;
-}
+	return matches;
 }

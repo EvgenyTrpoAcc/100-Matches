@@ -125,7 +125,7 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 					turn.setString(str);
 				}
 
-				if (event.key.code == Keyboard::Return && (st[0].status == true)) // Õîä ÷åëîâåêà
+				if (event.key.code == Keyboard::Return && (st[0].status == true)) // Ã•Ã®Ã¤ Ã·Ã¥Ã«Ã®Ã¢Ã¥ÃªÃ 
 				{
 					a = atoi(str.c_str());
 
@@ -281,4 +281,41 @@ void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod)
 
 		window->display();
 	}
+
+int II_Turn(int matches)
+{
+	int ost;
+	int a;
+
+	if (matches == 100)
+	{
+		srand(time(NULL));
+		a = rand() % 10 + 1;
+		matches -= a;
+	}
+	else if (((matches % 11) == 0) && (matches > 10))
+	{
+		matches -= 10;
+	}
+	else if (matches == 12)
+	{
+		matches -= 10;
+	}
+	else if (matches == 1)
+	{
+		â€”matches;
+	}
+	else if ((matches < 100) && (((matches % 11) - 1) != matches))
+	{
+		ost = (matches % 11) - 1;
+		matches -= ost;
+	}
+	else
+	{
+		a = matches - 1;
+		matches -= a;
+}
+
+return matches;
+}
 }

@@ -22,4 +22,6 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font);
 
 void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod);
 
+int II_Turn(int matches);
+
 #endif

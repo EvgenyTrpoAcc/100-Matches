@@ -316,8 +316,6 @@ int II_Turn(int matches)
 		a = matches - 1;
 		matches -= a;
 	}
-}
 
-return matches;
-}
+	return matches;
 }

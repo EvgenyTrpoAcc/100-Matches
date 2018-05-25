@@ -363,11 +363,83 @@ void CooperativePlay(RenderWindow *window, Sprite sp, Font font)
 					turn.setString(str);
 				}
 			}
+
+			if (event.type == Event::KeyPressed)
+			{
+				if (event.key.code == Keyboard::BackSpace) 
+				{
+					str.clear();
+					turn.setString(str);
+				}
+
+				if (event.key.code == Keyboard::Escape)
+				{
+					free(num);
+					return;
+				}
+			}
 		}
 
 		window->clear();
 
 		window->draw(sp);
+
+		if ((st[0].status == true) && (st[1].status == false) && (matches != 0))
+		{
+			text.setString("Turn of ");
+			text.setPosition(260, 140);
+			window->draw(text);
+
+			text.setString(st[0].name);
+			text.setPosition(395, 140);
+			window->draw(text);
+
+			turn.setString(str);
+			turn.setPosition(342.5, 185);
+			window->draw(turn);
+		}
+		else if ((st[1].status == true) && (st[0].status == false) && (matches != 0))
+		{
+			text.setString("Turn of ");
+			text.setPosition(260, 140);
+			window->draw(text);
+
+			text.setString(st[1].name);
+			text.setPosition(395, 140);
+			window->draw(text);
+
+			turn.setString(str);
+			turn.setPosition(342.5, 185);
+			window->draw(turn);
+		}
+		
+		text.setString("Matches:"); 
+		text.setPosition(280, 0);   //
+		window->draw(text);         //
+		text.setString(num);        // Number of matches
+		text.setPosition(470, 0);   //
+		window->draw(text);			// 
+		
+		if ((matches == 0) && (st[0].status == true) && (st[1].status == false))
+		{
+			text.setString(st[0].name);
+			text.setPosition(280, 140);
+			window->draw(text);
+
+			text.setString("!!! WIN !!!");
+			text.setPosition(300, 200);
+			window->draw(text);
+		}
+		else if ((matches == 0) && (st[1].status == true) && (st[0].status == false))
+		{
+			text.setString(st[1].name);
+			text.setPosition(280, 140);
+			window->draw(text);
+
+			text.setString("!!! WIN !!!");
+			text.setPosition(300, 200);
+			window->draw(text);
+		}
 
 		window->display();
 	}

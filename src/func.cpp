@@ -304,7 +304,7 @@ int II_Turn(int matches)
 	}
 	else if (matches == 1)
 	{
-		—matches;
+		--matches;
 	}
 	else if ((matches < 100) && (((matches % 11) - 1) != matches))
 	{

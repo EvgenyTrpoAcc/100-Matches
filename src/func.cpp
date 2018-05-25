@@ -69,3 +69,17 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 	after_h.setStyle(Text::Bold);
 
 }
+
+void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod)
+{
+	string str = "", ms;
+	ms = "\n\n\t\t  Enter nickname of gamer #1:";
+	int num = 0;
+
+	Text name("", font, 45), text("", font, 40);
+	text.setColor(Color::Color(0, 230, 0, 230));
+	text.setStyle(Text::Bold);
+	name.setColor(Color::Cyan);
+	name.setStyle(Text::Bold);
+
+}

@@ -20,4 +20,6 @@ char *IntToString(int n);
 
 void SinglePlay(RenderWindow *window, Sprite sp, Font font);
 
+void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod);
+
 #endif

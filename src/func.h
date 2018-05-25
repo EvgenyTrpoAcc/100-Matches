@@ -16,4 +16,6 @@ struct gamer
 
 bool InBounds(int num, int matches);
 
+char *IntToString(int n);
+
 #endif

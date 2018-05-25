@@ -1,6 +1,6 @@
 CC = g++-4.8
 
-FLAG = -Wall
+FLAG = -Wall -std=c99
 
 .PHONY: clean
 

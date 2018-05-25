@@ -28,3 +28,4 @@ launch:
 
 clean:
 		rm -rf build bin
+

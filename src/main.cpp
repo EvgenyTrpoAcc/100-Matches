@@ -9,14 +9,13 @@ int main()
 {
 	RenderWindow window(VideoMode(800, 450), "100 matches");
 	string str;
-	char ch;
 
 	Font font;
 	font.loadFromFile("Things/11776.otf");
 
 	Text text("", font, 35), mod("", font, 50);
 
-	text.setColor(Color::Color(0, 230, 0, 230));
+	text.setColor(Color(0, 230, 0, 230));
 	text.setStyle(Text::Bold);
 
 	mod.setColor(Color::Cyan);
@@ -45,6 +44,17 @@ int main()
 		window.clear();
 
 		window.draw(sp_sprite);
+
+		text.setString("MOD: ");
+		text.setPosition(303, 210.5);
+		window.draw(text);
+
+		mod.setPosition(403, 195);
+		window.draw(mod);
+
+		text.setString("\t\t100 Matches\n\nChoose mode [1 or 2]\n1 - Single Play\n2 - Cooperative Play");
+		text.setPosition(220, 0);
+		window.draw(text);
 
 		window.display();
 	}

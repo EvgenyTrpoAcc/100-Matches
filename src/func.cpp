@@ -323,3 +323,156 @@ int II_Turn(int matches)
 
 	return matches;
 }
+
+void CooperativePlay(RenderWindow *window, Sprite sp, Font font)
+{
+	gamer st[2];
+	int matches = 100, a;
+	char *num;
+	string str;
+
+	Text text("", font, 40), turn("", font, 50);
+
+	text.setColor(Color(0, 230, 0, 230));
+	text.setStyle(Text::Bold);
+	turn.setColor(Color::Cyan);
+	turn.setStyle(Text::Bold);
+
+	RecordData(st, window, sp, font, 2);
+	st[0].status = true;
+	st[1].status = false;
+
+	num = IntToString(matches);
+
+	while (window->isOpen())
+	{
+		Event event;
+		while (window->pollEvent(event))
+		{
+			if (event.type == Event::Closed)
+			{
+				free(num);
+				window->close();
+			}
+
+			if (event.type == Event::TextEntered)
+			{
+				if (event.text.unicode < 128)
+				{
+					str += static_cast<char>(event.text.unicode);
+					turn.setString(str);
+				}
+			}
+
+			if (event.type == Event::KeyPressed)
+			{
+				if (event.key.code == Keyboard::BackSpace) 
+				{
+					str.clear();
+					turn.setString(str);
+				}
+
+				if (event.key.code == Keyboard::Escape)
+				{
+					free(num);
+					return;
+				}
+
+				if (event.key.code == Keyboard::Return && (st[0].status == true) && (st[1].status == false)) // Human turn
+				{
+					a = atoi(str.c_str());
+
+					if (InBounds(a, matches))
+					{
+						matches -= a;
+						st[0].status = false;
+						st[1].status = true;
+						free(num);
+						num = IntToString(matches);
+					}
+
+					str.clear();
+				}
+
+				if (event.key.code == Keyboard::Return && (st[1].status == true) && (st[0].status == false)) // Human turn
+				{
+					a = atoi(str.c_str());
+
+					if (InBounds(a, matches))
+					{
+						matches -= a;
+						st[0].status = true;
+						st[1].status = false;
+						free(num);
+						num = IntToString(matches);
+					}
+
+					str.clear();
+				}
+			}
+		}
+
+		window->clear();
+
+		window->draw(sp);
+
+		if ((st[0].status == true) && (st[1].status == false) && (matches != 0))
+		{
+			text.setString("Turn of ");
+			text.setPosition(260, 140);
+			window->draw(text);
+
+			text.setString(st[0].name);
+			text.setPosition(395, 140);
+			window->draw(text);
+
+			turn.setString(str);
+			turn.setPosition(342.5, 185);
+			window->draw(turn);
+		}
+		else if ((st[1].status == true) && (st[0].status == false) && (matches != 0))
+		{
+			text.setString("Turn of ");
+			text.setPosition(260, 140);
+			window->draw(text);
+
+			text.setString(st[1].name);
+			text.setPosition(395, 140);
+			window->draw(text);
+
+			turn.setString(str);
+			turn.setPosition(342.5, 185);
+			window->draw(turn);
+		}
+		
+		text.setString("Matches:"); 
+		text.setPosition(280, 0);   //
+		window->draw(text);         //
+		text.setString(num);        // Number of matches
+		text.setPosition(470, 0);   //
+		window->draw(text);			// 
+		
+		if ((matches == 0) && (st[0].status == true) && (st[1].status == false))
+		{
+			text.setString(st[0].name);
+			text.setPosition(280, 140);
+			window->draw(text);
+
+			text.setString("!!! WIN !!!");
+			text.setPosition(300, 200);
+			window->draw(text);
+		}
+		else if ((matches == 0) && (st[1].status == true) && (st[0].status == false))
+		{
+			text.setString(st[1].name);
+			text.setPosition(280, 140);
+			window->draw(text);
+
+			text.setString("!!! WIN !!!");
+			text.setPosition(300, 200);
+			window->draw(text);
+		}
+
+		window->display();
+	}
+}

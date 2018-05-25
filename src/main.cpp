@@ -39,6 +39,29 @@ int main()
 			{
 				window.close();
 			}
+
+			if (event.type == Event::TextEntered)
+			{
+				if (event.text.unicode == '1' || event.text.unicode == '2')
+				{
+					str += static_cast<char>(event.text.unicode);
+					mod.setString(str);
+					ch = event.text.unicode;
+					str = "";
+				}
+			}
+
+			if (event.type == sf::Event::KeyPressed)
+			{
+				if (event.key.code == Keyboard::Return && (ch == '1'))
+				{
+					
+				}
+				else if (event.key.code == Keyboard::Return && (ch == '2'))
+				{
+					
+				}
+			}
 		}
 
 		window.clear();

@@ -326,5 +326,22 @@ int II_Turn(int matches)
 
 void CooperativePlay(RenderWindow *window, Sprite sp, Font font)
 {
+	gamer st[2];
+	int matches = 100, x = 1, a;
+	char *num;
+	string str;
+
+	Text text("", font, 40), turn("", font, 50);
+
+	text.setColor(Color::Color(0, 230, 0, 230));
+	text.setStyle(Text::Bold);
+	turn.setColor(Color::Cyan);
+	turn.setStyle(Text::Bold);
+
+	RecordData(st, window, sp, font, 2);
+	st[0].status = true;
+	st[1].status = false;
+
+	num = IntToString(matches);
 
 }

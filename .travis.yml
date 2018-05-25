@@ -1,0 +1,3 @@
+language: c++
+compiler: g++-4.8
+script: make default

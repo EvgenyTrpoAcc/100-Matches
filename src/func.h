@@ -14,4 +14,6 @@ struct gamer
     string name;
 };
 
+bool InBounds(int num, int matches);
+
 #endif

@@ -18,4 +18,6 @@ bool InBounds(int num, int matches);
 
 char *IntToString(int n);
 
+void SinglePlay(RenderWindow *window, Sprite sp, Font font);
+
 #endif

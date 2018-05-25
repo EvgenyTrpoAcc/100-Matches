@@ -82,4 +82,30 @@ void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod)
 	name.setColor(Color::Cyan);
 	name.setStyle(Text::Bold);
 
+	if (mod == 1) { text.setString("\n\n\t\t\t\tEnter your nickname:"); }
+	else text.setString(ms);
+
+	while (window->isOpen())
+	{
+		Event event;
+		while (window->pollEvent(event))
+		{
+			if (event.type == Event::Closed)
+			{
+				window->close();
+			}
+
+		}
+
+		window->clear();
+
+		window->draw(sp);
+
+		window->draw(text);
+
+		name.setPosition(230, 150);
+		window->draw(name);
+
+		window->display();
+	}
 }

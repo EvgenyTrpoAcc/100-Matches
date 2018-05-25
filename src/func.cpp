@@ -69,7 +69,7 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 	after_h.setStyle(Text::Bold);
 
 	RecordData(st, window, sp, font, 1);
-	
+
 	num = IntToString(matches);
 	was = IntToString(matches);
 
@@ -174,16 +174,16 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 			window->draw(turn);
 		}
 
-		text.setString("Matches:"); 
-		text.setPosition(280, 0);   
-		window->draw(text);         
-		text.setString(num);         
-		text.setPosition(470, 0);   
-		window->draw(text);			
+		text.setString("Matches:");
+		text.setPosition(280, 0);
+		window->draw(text);
+		text.setString(num);
+		text.setPosition(470, 0);
+		window->draw(text);
 
-		text.setString("After human:"); 
-		text.setPosition(240, 40);   
-		window->draw(text);         
+		text.setString("After human:");
+		text.setPosition(240, 40);
+		window->draw(text);
 		after_h.setString(was);
 		after_h.setPosition(510, 40);
 		window->draw(after_h);
@@ -191,7 +191,7 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 		////
 		//ii turn
 		////
-		
+
 		if ((matches == 0) && (st[0].status == true))
 		{
 			text.setString("!!! YOU WIN !!!");

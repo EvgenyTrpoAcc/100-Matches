@@ -61,11 +61,11 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 
 	Text text("", font, 40), turn("", font, 50), after_h("Try again", font, 40);
 
-	text.setColor(Color::Color(0, 230, 0, 230));
+	text.setColor(Color(0, 230, 0, 230));
 	text.setStyle(Text::Bold);
 	turn.setColor(Color::Cyan);
 	turn.setStyle(Text::Bold);
-	after_h.setColor(Color::Color(0, 230, 0, 230));
+	after_h.setColor(Color(0, 230, 0, 230));
 	after_h.setStyle(Text::Bold);
 
 	RecordData(st, window, sp, font, 1);
@@ -124,6 +124,23 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 					str.clear();
 					turn.setString(str);
 				}
+
+				if (event.key.code == Keyboard::Return && (st[0].status == true)) // Ход человека
+				{
+					a = atoi(str.c_str());
+
+					if (InBounds(a, matches))
+					{
+						matches -= a;
+						st[0].status = false;
+						free(num);
+						free(was);
+						num = IntToString(matches);
+						was = IntToString(matches);
+					}
+
+					str.clear();
+				}
 			}
 		}
 
@@ -142,7 +159,21 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 			window->draw(turn);
 		}
 
-		/////////////////////////
+		if ((st[0].status == true) && (matches != 0))
+		{
+			text.setString("Turn of ");
+			text.setPosition(260, 140);
+			window->draw(text);
+
+			text.setString(st[0].name);
+			text.setPosition(395, 140);
+			window->draw(text);
+
+			turn.setString(str);
+			turn.setPosition(342.5, 185);
+			window->draw(turn);
+		}
+
 		text.setString("Matches:"); 
 		text.setPosition(280, 0);   
 		window->draw(text);         
@@ -156,7 +187,24 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 		after_h.setString(was);
 		after_h.setPosition(510, 40);
 		window->draw(after_h);
-		////////////////////////////
+
+		////
+		//ii turn
+		////
+		
+		if ((matches == 0) && (st[0].status == true))
+		{
+			text.setString("!!! YOU WIN !!!");
+			text.setPosition(210, 160);
+			window->draw(text);
+		}
+		else if ((matches == 0) && (st[0].status == false))
+		{
+			text.setString("...YOU LOSE...");
+			text.setPosition(210, 160);
+			window->draw(text);
+		}
+
 		window->display();
 	}
 }
@@ -168,7 +216,7 @@ void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod)
 	int num = 0;
 
 	Text name("", font, 45), text("", font, 40);
-	text.setColor(Color::Color(0, 230, 0, 230));
+	text.setColor(Color(0, 230, 0, 230));
 	text.setStyle(Text::Bold);
 	name.setColor(Color::Cyan);
 	name.setStyle(Text::Bold);

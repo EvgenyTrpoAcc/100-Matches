@@ -80,15 +80,55 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 		{
 			if (event.type == Event::Closed)
 			{
+				free(was);
 				free(num);
 				window->close();
+			}
+
+			if (event.type == Event::TextEntered)
+			{
+				if (event.text.unicode < 128)
+				{
+					str += static_cast<char>(event.text.unicode);
+					turn.setString(str);
+					ch = event.text.unicode;
+				}
+			}
+
+			if (event.type == Event::KeyPressed)
+			{
+				if (event.key.code == Keyboard::BackSpace)
+				{
+					str.clear();
+					turn.setString(str);
+				}
+
+				if (event.key.code == Keyboard::Escape)
+				{
+					free(num);
+					return;
+				}
 			}
 		}
 
 		window->clear();
 
 		window->draw(sp);
+		/////////////////////////
+		text.setString("Matches:"); 
+		text.setPosition(280, 0);   
+		window->draw(text);         
+		text.setString(num);         
+		text.setPosition(470, 0);   
+		window->draw(text);			
 
+		text.setString("After human:"); 
+		text.setPosition(240, 40);   
+		window->draw(text);         
+		after_h.setString(was);
+		after_h.setPosition(510, 40);
+		window->draw(after_h);
+		////////////////////////////
 		window->display();
 	}
 }

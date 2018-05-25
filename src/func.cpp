@@ -68,6 +68,8 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 	after_h.setColor(Color::Color(0, 230, 0, 230));
 	after_h.setStyle(Text::Bold);
 
+	RecordData(st, window, sp, font, 1);
+
 }
 
 void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod)
@@ -101,6 +103,32 @@ void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod)
 				{
 					str += static_cast<char>(event.text.unicode);
 					name.setString(str);
+				}
+			}
+
+			if (event.type == Event::KeyPressed)
+			{
+				if (event.key.code == Keyboard::BackSpace)
+				{
+					str.clear();
+					name.setString(str);
+				}
+			}
+
+			if (event.type == Event::KeyPressed)
+			{
+				if (event.key.code == Keyboard::Return)
+				{
+					str.clear();
+					st[num].name = name.getString();
+					++num;
+					if (num == 1)
+					{
+						(ms[ms.length() - 2] = '2');
+						text.setString(ms);
+					}
+
+					if (num == mod) { return; }
 				}
 			}
 		}

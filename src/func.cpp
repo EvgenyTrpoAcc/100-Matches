@@ -323,3 +323,8 @@ int II_Turn(int matches)
 
 	return matches;
 }
+
+void CooperativePlay(RenderWindow *window, Sprite sp, Font font)
+{
+
+}

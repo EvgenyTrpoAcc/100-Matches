@@ -327,13 +327,13 @@ int II_Turn(int matches)
 void CooperativePlay(RenderWindow *window, Sprite sp, Font font)
 {
 	gamer st[2];
-	int matches = 100, x = 1, a;
+	int matches = 100, a;
 	char *num;
 	string str;
 
 	Text text("", font, 40), turn("", font, 50);
 
-	text.setColor(Color::Color(0, 230, 0, 230));
+	text.setColor(Color(0, 230, 0, 230));
 	text.setStyle(Text::Bold);
 	turn.setColor(Color::Cyan);
 	turn.setStyle(Text::Bold);
@@ -378,7 +378,7 @@ void CooperativePlay(RenderWindow *window, Sprite sp, Font font)
 					return;
 				}
 
-				if (event.key.code == Keyboard::Return && (st[0].status == true) && (st[1].status == false)) // Ход человека
+				if (event.key.code == Keyboard::Return && (st[0].status == true) && (st[1].status == false)) // Human turn
 				{
 					a = atoi(str.c_str());
 
@@ -394,7 +394,7 @@ void CooperativePlay(RenderWindow *window, Sprite sp, Font font)
 					str.clear();
 				}
 
-				if (event.key.code == Keyboard::Return && (st[1].status == true) && (st[0].status == false)) // Ход человека
+				if (event.key.code == Keyboard::Return && (st[1].status == true) && (st[0].status == false)) // Human turn
 				{
 					a = atoi(str.c_str());
 

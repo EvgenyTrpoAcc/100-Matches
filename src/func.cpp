@@ -377,6 +377,38 @@ void CooperativePlay(RenderWindow *window, Sprite sp, Font font)
 					free(num);
 					return;
 				}
+
+				if (event.key.code == Keyboard::Return && (st[0].status == true) && (st[1].status == false)) // Ход человека
+				{
+					a = atoi(str.c_str());
+
+					if (InBounds(a, matches))
+					{
+						matches -= a;
+						st[0].status = false;
+						st[1].status = true;
+						free(num);
+						num = IntToString(matches);
+					}
+
+					str.clear();
+				}
+
+				if (event.key.code == Keyboard::Return && (st[1].status == true) && (st[0].status == false)) // Ход человека
+				{
+					a = atoi(str.c_str());
+
+					if (InBounds(a, matches))
+					{
+						matches -= a;
+						st[0].status = true;
+						st[1].status = false;
+						free(num);
+						num = IntToString(matches);
+					}
+
+					str.clear();
+				}
 			}
 		}
 

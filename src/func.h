@@ -14,4 +14,6 @@ struct gamer
     string name;
 };
 
+void SinglePlay(RenderWindow *window, Sprite sp, Font font);
+
 #endif

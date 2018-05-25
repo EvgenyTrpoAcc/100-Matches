@@ -95,6 +95,14 @@ void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod)
 				window->close();
 			}
 
+			if (event.type == Event::TextEntered)
+			{
+				if (event.text.unicode < 128)
+				{
+					str += static_cast<char>(event.text.unicode);
+					name.setString(str);
+				}
+			}
 		}
 
 		window->clear();

@@ -56,7 +56,7 @@ int main()
 			{
 				if (event.key.code == Keyboard::Return && (ch == '1'))
 				{
-					
+					SinglePlay(&window, sp_sprite, font);
 				}
 				else if (event.key.code == Keyboard::Return && (ch == '2'))
 				{

@@ -108,12 +108,40 @@ void SinglePlay(RenderWindow *window, Sprite sp, Font font)
 					free(num);
 					return;
 				}
+
+				if (event.key.code == Keyboard::Return && (x == 1) && (ch == 'y'))
+				{
+					st[0].status = true;
+					--x;
+					str.clear();
+					turn.setString(str);
+				}
+
+				if (event.key.code == Keyboard::Return && (x == 1) && (ch == 'n'))
+				{
+					st[0].status = false;
+					--x;
+					str.clear();
+					turn.setString(str);
+				}
 			}
 		}
 
 		window->clear();
 
 		window->draw(sp);
+
+		if (x == 1) // Choice: to turn first or second
+		{
+			text.setString("\n\nDo you want to turn first ? [y or n]");
+			text.setPosition(55, 0);
+			window->draw(text);
+
+			turn.setString(ch);
+			turn.setPosition(350, 120);
+			window->draw(turn);
+		}
+
 		/////////////////////////
 		text.setString("Matches:"); 
 		text.setPosition(280, 0);   

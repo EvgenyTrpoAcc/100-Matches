@@ -15,10 +15,10 @@ int main()
 
 	Text text("", font, 35), mod("", font, 50);
 
-	text.setFillColor(Color(0, 230, 0, 230));
+	text.setColor(Color(0, 230, 0, 230));
 	text.setStyle(Text::Bold);
 
-	mod.setFillColor(Color::Cyan);
+	mod.setColor(Color::Cyan);
 	mod.setStyle(Text::Bold);
 
 	Image sp;

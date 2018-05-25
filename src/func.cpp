@@ -51,3 +51,21 @@ char *IntToString(int n)
 
 	return string;
 }
+
+void SinglePlay(RenderWindow *window, Sprite sp, Font font)
+{
+	gamer st[1];
+	int matches = 100, x = 1, a;
+	char *num, ch, *was;
+	string str;
+
+	Text text("", font, 40), turn("", font, 50), after_h("Try again", font, 40);
+
+	text.setColor(Color::Color(0, 230, 0, 230));
+	text.setStyle(Text::Bold);
+	turn.setColor(Color::Cyan);
+	turn.setStyle(Text::Bold);
+	after_h.setColor(Color::Color(0, 230, 0, 230));
+	after_h.setStyle(Text::Bold);
+
+}

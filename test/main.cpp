@@ -1,12 +1,11 @@
 #define CTEST_MAIN
 
-#include <stdio.h>
 #include <func.h>
 #include <gtest/gtest.h>
 
 TEST(CheckCorrect, Correct)
 {
-	printf("%d\n", ASSERT_EQ(78, II_Turn(86)));
+	ASSERT_EQ(78, II_Turn(86));
 	ASSERT_EQ(0, II_Turn(1));
 	ASSERT_EQ(12, II_Turn(14));
 	ASSERT_EQ(67, II_Turn(77));

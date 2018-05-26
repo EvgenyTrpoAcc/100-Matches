@@ -24,4 +24,6 @@ void RecordData(gamer *st, RenderWindow *window, Sprite sp, Font font, int mod);
 
 int II_Turn(int matches);
 
+void CooperativePlay(RenderWindow *window, Sprite sp, Font font);
+
 #endif

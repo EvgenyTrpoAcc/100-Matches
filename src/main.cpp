@@ -60,7 +60,7 @@ int main()
 				}
 				else if (event.key.code == Keyboard::Return && (ch == '2'))
 				{
-					
+					CooperativePlay(&window, sp_sprite, font);
 				}
 			}
 		}

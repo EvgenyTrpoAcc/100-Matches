@@ -4,5 +4,6 @@ compiler:
 
 before_script:
   - sudo apt-get install libsfml-dev
+  - sudo apt-get install libgtest-dev
 
 script: make default

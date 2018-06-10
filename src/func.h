@@ -10,8 +10,8 @@ using namespace sf;
 
 struct gamer
 {
-    bool status;
-    string name;
+	bool status;
+	string name;
 };
 
 bool InBounds(int num, int matches);

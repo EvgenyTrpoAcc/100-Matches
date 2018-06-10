@@ -444,14 +444,14 @@ void CooperativePlay(RenderWindow *window, Sprite sp, Font font)
 			turn.setPosition(342.5, 185);
 			window->draw(turn);
 		}
-		
-		text.setString("Matches:"); 
+
+		text.setString("Matches:");
 		text.setPosition(280, 0);   //
 		window->draw(text);         //
 		text.setString(num);        // Number of matches
 		text.setPosition(470, 0);   //
-		window->draw(text);			// 
-		
+		window->draw(text);	    //
+
 		if ((matches == 0) && (st[0].status == true) && (st[1].status == false))
 		{
 			text.setString(st[0].name);

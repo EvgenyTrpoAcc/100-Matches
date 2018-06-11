@@ -38,18 +38,32 @@ TEST(II_Turn1, Correct)
         ASSERT_EQ(expected, result);
 }
 
-TEST(II_Turn2, Correctcd)
+TEST(II_Turn2, Correct)
 {
         int result = II_Turn(14);
         int expected = 12;
         ASSERT_EQ(expected, result);
 }
 
-TEST(II_Turn3, Correctcd)
+TEST(II_Turn3, Correct)
 {
         int result = II_Turn(77);
         int expected = 67;
         ASSERT_EQ(expected, result);
+}
+
+TEST(II_Turn4, Correct)
+{
+        int result = II_Turn(11);
+        int expected = 1;
+        ASSERT_EQ(expected, result);
+}
+
+TEST(II_Turn, Correct)
+{
+        int result = II_Turn(100);
+        int value = 90;
+        ASSERT_LE(value, result);
 }
 
 TEST(IntToString1, Correct)

@@ -10,6 +10,6 @@ before_script:
   - sudo cmake CMakeLists.txt
   - sudo make
   - sudo cp *.a /usr/lib
-  - cd home/travis/build/UsagiLoliChan/100-Matches
+  - cd /home/travis/build/UsagiLoliChan/100-Matches
 
 script: make default && make test && make launch_test

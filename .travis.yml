@@ -10,5 +10,6 @@ before_script:
   - sudo cmake CMakeLists.txt
   - sudo make
   - sudo cp *.a /usr/lib
+  - cd -
 
 script: make default && make test && make launch_test

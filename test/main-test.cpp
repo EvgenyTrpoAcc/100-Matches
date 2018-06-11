@@ -24,7 +24,7 @@ TEST(InBounds3, InCorrect)
         ASSERT_EQ(expected, result);
 }
 
-TEST(InBounds, Correct)
+TEST(InBounds4, Correct)
 {
         int result = InBounds(5, 100);
         int expected = 1;
@@ -59,11 +59,18 @@ TEST(II_Turn4, Correct)
         ASSERT_EQ(expected, result);
 }
 
-TEST(II_Turn, Correct)
+TEST(II_Turn5, Correct)
 {
         int result = II_Turn(100);
         int value = 90;
         ASSERT_LE(value, result);
+}
+
+TEST(II_Turn6, Correct)
+{
+        int result = II_Turn(100);
+        int value = 100;
+        ASSERT_GT(value, result);
 }
 
 TEST(IntToString1, Correct)

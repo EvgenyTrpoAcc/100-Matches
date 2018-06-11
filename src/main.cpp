@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "func.h"
+#include "func/func.h"
 
 using namespace std;
 using namespace sf;

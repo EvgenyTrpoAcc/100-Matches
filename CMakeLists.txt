@@ -12,5 +12,5 @@ add_executable(test ${SOURCE_EXE})
 
 add_subdirectory(src/func)
 
-target_link_libraries(test func gtest)
+target_link_libraries(test func gtest sfml-window sfml-system sfml-graphics)
 

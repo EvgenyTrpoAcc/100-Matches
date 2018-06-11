@@ -1,6 +1,11 @@
 language: cpp
 compiler:
   - g++-4.8
+addons:
+   apt:
+   packages:
+     - g++
+     - cmake
 
 before_script:
   - sudo apt-get install libsfml-dev

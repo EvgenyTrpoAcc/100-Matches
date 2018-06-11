@@ -19,5 +19,5 @@ script:
   - cmake ..
   - make
   - cd ..
-  - launch_test
+  - make launch_test
 

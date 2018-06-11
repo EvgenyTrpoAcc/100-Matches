@@ -17,6 +17,7 @@ script:
   - make default 
   - cd build
   - cmake ..
+  - make
   - cd ..
   - launch_test
 

@@ -38,4 +38,3 @@ clean:
 
 create_test:
 		cd build && cmake .. && make && cd ..
-

@@ -1,9 +1,22 @@
 language: cpp
 compiler:
   - g++-4.8
-  - clang
-
+ 
 before_script:
-  - sudo apt-get install libsfml-dev  
+  - sudo apt-get install libsfml-dev
+  - sudo apt-get install libgtest-dev
+  - sudo apt-get install cmake
+  - cd /usr/src/gtest
+  - ls -a
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - sudo cp *.a /usr/lib
+  - cd /home/travis/build/UsagiLoliChan/t  
 
-script: make default && make test && make launch_test
+script: 
+  - make default 
+  - cd build
+  - cmake ..
+  - cd ..
+  - launch_test
+

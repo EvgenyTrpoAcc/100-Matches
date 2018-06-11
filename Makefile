@@ -37,4 +37,5 @@ clean:
 		rm -rf build bin
 
 create_test:
-		cd build && cmake .. && make && cd ..
+		cd build && cmake .. && make
+

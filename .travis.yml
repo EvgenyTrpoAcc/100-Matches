@@ -11,7 +11,7 @@ before_script:
   - sudo cmake CMakeLists.txt
   - sudo make
   - sudo cp *.a /usr/lib
-  - cd /home/travis/build/UsagiLoliChan/t  
+  - cd /home/travis/build/UsagiLoliChan/100_Matches 
 
 script: 
   - make default 

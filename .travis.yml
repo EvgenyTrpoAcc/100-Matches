@@ -1,21 +1,9 @@
 language: cpp
 compiler:
   - g++-4.8
-addons:
-   apt:
-   packages:
-     - g++
-     - cmake
+  - clang
 
 before_script:
-  - sudo apt-get install libsfml-dev
-  - sudo apt-get install libgtest-dev
-  - sudo apt-get install cmake
-  - cd /usr/src/gtest
-  - ls -a
-  - sudo cmake CMakeLists.txt
-  - sudo make
-  - sudo cp *.a /usr/lib
-  - cd /home/travis/build/UsagiLoliChan/100-Matches
+  - sudo apt-get install libsfml-dev  
 
 script: make default && make test && make launch_test
